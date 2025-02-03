@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Inicio OPI TEJEDURIA</title>
+        <link rel="stylesheet" href="styles.css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/8873f45d15.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+    <div id="encabezado">
+        <h1>PROGRAMA DE LUBRICACION</h1>
+        <h2>OPI TEJEDURIA</h2>
+               </div>
+    <div id="panel">
+        <nav>
+            <a href="./prueba2.html"><i class="fa-solid fa-lock"></i> Administrador</a>
+            <a href="#Division_Textil"><i class="fa-solid fa-scroll"></i>División Textil</a>
+            <a href="#PROCO"><i class="fa-solid fa-gear"></i>PROCO</a>
+            <a href="#Circulares_Seamless_Santoni"><i class="fa-solid fa-shirt"></i>Circulares Seamless Santoni</a>
+        </nav>
+    </div>
+    <div class="fechasemana">
+        <p id="fecha"></p>
+        <p id="semana"></p>
+    </div>
+
+    <div class="login-container">
+        <h2>Iniciar Sesión</h2>
+        <form id="loginForm">
+            <div class="input-group">
+                <label for="username"><i class="fa-solid fa-user"></i>Nombre de Usuario</label>
+                <input  type="text" id="username" name="username" required >
+            </div>
+            <div class="input-group">
+                <label for="password"><i class="fa-solid fa-lock"></i>Contraseña</label>
+                <input type="password" id="password" name="password" required >
+            </div>
+            <button type="submit">Iniciar Sesión</button>
+        </form>
+        <p id="error-message" style="color:red; display:none;">Usuario o contraseña incorrectos.</p>
+    </div>
+
+        
+    <script>
+        // Obtener la fecha actual
+        const fechaActual = new Date();
+
+        // Mostrar la fecha actual en formato: Día de la semana, DD/MM/AAAA
+        const opcionesFecha = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('fecha').textContent = `Fecha: ${fechaActual.toLocaleDateString('es-ES', opcionesFecha)}`;
+
+        // Función para calcular el número de la semana
+        function obtenerNumeroSemana(fecha) {
+            const dia = new Date(fecha);
+            const inicioAnio = new Date(dia.getFullYear(), 0, 1);
+            const diasTranscurridos = (dia - inicioAnio) / (1000 * 60 * 60 * 24);
+            return Math.ceil((diasTranscurridos + 1) / 7);
+        }
+
+        // Obtener y mostrar el número de la semana
+        const numeroSemana = obtenerNumeroSemana(fechaActual);
+        document.getElementById('semana').textContent = `Semana Actual: ${numeroSemana}`;
+    </script>
+
+    </body>
+</html>
