@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>Plantas OPI</title>
+        <link rel="stylesheet" href="plantas2.css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+        <meta name="aur">
+        <script src="https://kit.fontawesome.com/8873f45d15.js" crossorigin="anonymous"></script>
+        <link rel="icon" href="./lubricacion.png" type="image/png">
+    </head>
+    <body>
+
+    <!--Encabezado de pagina-->    
+        <div class="encabezado">
+            <p>C.I.G & Lingerie s.a.s</p>  
+            <h1>LUBRICACIÓN TEJEDURIAS</h1>
+        </div> 
+
+    <!--Boton Administrador y Salir-->
+        <div class="Administrador">
+            <a href="Administrador"><i class="fa-solid fa-lock"></i>Administrador</a>
+            <a href="./inicio.html"><i class="fa-solid fa-power-off"></i>Salir</a>
+        </div>
+        
+            
+       <!--Botones de de plantas-->
+        <div class="plantas">
+            <h2>División Textil</h2>
+            <p>Items de lubricacion</p>
+            <li>
+                <a href="./inicio.html">Mapa de horometros</a>
+            </li>
+            <li>
+                <a href="./inicio.html">Resumen</a>
+            </li>
+            <li>
+                <a href="./inicio.html">Puntos de lubricación</a>
+            </li>
+            <li>
+                <a href="./inicio.html">Actualizar horometros</a>
+            </li>
+        </div>
+       
+       
+  
+        <script>
+            // Obtener la fecha actual
+            const fechaActual = new Date();
+
+            // Mostrar la fecha actual en formato: Día de la semana, DD/MM/AAAA
+            const opcionesFecha = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('fecha').textContent = `Fecha: ${fechaActual.toLocaleDateString('es-ES', opcionesFecha)}`;
+
+            // Función para calcular el número de la semana
+            function obtenerNumeroSemana(fecha) {
+            const dia = new Date(fecha);
+            const inicioAnio = new Date(dia.getFullYear(), 0, 1);
+            const diasTranscurridos = (dia - inicioAnio) / (1000 * 60 * 60 * 24);
+            return Math.ceil((diasTranscurridos + 1) / 7);
+            }
+
+            // Obtener y mostrar el número de la semana
+            const numeroSemana = obtenerNumeroSemana(fechaActual);
+            document.getElementById('semana').textContent = `Semana Actual: ${numeroSemana}`;
+            </script>
+
+    </body>
+</html>
