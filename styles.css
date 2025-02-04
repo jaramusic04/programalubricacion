@@ -10,6 +10,13 @@
          
 }
 
+.encabezado p {
+
+margin: 10px 20px; 
+text-align: left; 
+font-style: italic;  
+}
+
 
 body{
    
@@ -19,12 +26,12 @@ body{
 }
 
 h2 {
+
     text-align: center;
-    margin-top: 0;
-    margin-left: 10px;
     color: #264264;
-    
 }
+
+
 
 .nav-inicio1 {
     background-color: #366092;
