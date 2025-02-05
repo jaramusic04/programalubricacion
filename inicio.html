@@ -4,18 +4,18 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <title>Inicio OPI TEJEDURIA</title>
-        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="./Estilos/styles.css">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
         <meta name="aur">
         <script src="https://kit.fontawesome.com/8873f45d15.js" crossorigin="anonymous"></script>
-        <link rel="icon" href="./lubricacion.png" type="image/png">
+        <link rel="icon" href="./Imagenes/lubricacion.png" type="image/png">
     </head>
     <body>
 
     <!--Encabezado de pagina-->    
     <div class="encabezado">
-    <h1>PROGRAMA DE LUBRICACION</h1>
-    <h2>OPI TEJEDURIA</h2>
+        <h1>PROGRAMA DE LUBRICACION</h1>
+        <h2>OPI TEJEDURIA</h2>
     </div>
 
     <!--Fecha de la pagina-->
@@ -26,27 +26,29 @@
 
     <!--Login de inicio de sesion-->
     <div class="login-container">
-              <h2>Iniciar Sesión</h2>
-                <form id="loginForm">
-            <div class="input-group"> <!-- Ingreso de usuario-->
-                <label for="username"><i class="fa-solid fa-user"></i>Nombre de Usuario</label>
+        <h2>Iniciar Sesión</h2>
+    <form id="loginForm">
+        <div class="input-group"> <!-- Ingreso de usuario-->
+            <label for="username"><i class="fa-solid fa-user"></i>Nombre de Usuario</label>
                 <input  type="text" id="username" name="username" required >
-            </div>
-            <div class="input-group"> <!-- Ingreso de contraseña-->
-                <label for="password"><i class="fa-solid fa-lock"></i>Contraseña</label>
+        </div>
+        <div class="input-group"> <!-- Ingreso de contraseña-->
+            <label for="password"><i class="fa-solid fa-lock"></i>Contraseña</label>
                 <input type="password" id="password" name="password" required >
-            </div>
-            <div>
-            
-                <!--Boton de enviar del login-->
+        </div>
+        
+        <!--Boton de enviar del login-->        
+        <div>   
             <button type="submit">Ingresar</button>
-            </div>
-            <div class="registro">
+        </div>
+
+        <!--Boton registrarse-->
+        <div class="registro">
             <p><a href="./prueba.html">Registrarse</a></p>
-            </div>
-                </form>
+        </div>
+    </form>
                 
-        <p id="error-message" style="color:red; display:none;">Usuario o contraseña incorrectos.</p>
+    
     </div>
 
     <!--Pie de pagina-->
