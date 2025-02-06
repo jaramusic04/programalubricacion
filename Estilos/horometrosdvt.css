@@ -18,8 +18,10 @@ font-style: italic;
 }
 
 
+
 ul {
     
+   
     margin: 0 300px 0 300px;
     display: flex;
     background: rgba(250, 246, 197, 0.3);
@@ -52,26 +54,47 @@ li {
 
 table {
 
-    margin: 100px 150px;
+    margin: auto;
+    margin-top: 100px;
     font-family: sans-serif;
     border-collapse: collapse;
     border-spacing: 5px;
-    border: 2px solid #264264;
     box-shadow: 0 0 25px #0003; 
-      
+    cursor: pointer;
+    max-width: 100%;
+    overflow-x: auto;
+   
+}
+
+thead tr th {
+    position: sticky;
+    z-index: 10;
+    top: 0;
 }
 
 
 
 th {
-    
+    width: 50px;
     border: 1px solid #343a40;
     padding-right: 60px;
     padding-left: 60px;
     color: #343a40;
     font-size: 14px;
     background: #DDD9C4;
-    
+  
+}
+
+
+td:hover {
+
+    background-color: #343a40;
+    color: #BFBFBF;
+}
+th:hover {
+
+    background-color: #343a40;
+    color: #BFBFBF;
 }
 
 tbody {
@@ -112,7 +135,7 @@ td {
     color: #264264;
     font-size: 18px;
     padding: 5px;
-    border: 2px solid #264264; 
+    border: 1px solid #343a40; 
 }
 
 .hor_inicial {
@@ -124,6 +147,7 @@ td {
 
 .hor_actual {
 
+    width: 50px;
     background: #DCE6F1;
     color: #5a757b;
     font-weight: 600;
@@ -131,6 +155,7 @@ td {
 
 .hor_trabajo {
 
+    width: 50px;
     background: #EEECE1;
     color: #5a757b;
     font-weight: 600;
@@ -139,13 +164,10 @@ td {
 
 body{
     
-       margin: 0 0 0 0;  
-       height: 100vh;
-       overflow: hidden;
+       width: 100%;       
+       background: linear-gradient(rgba(55, 96, 146, 0.4), transparent);
+       overflow-x: hidden;
+    margin-bottom: 20px;
+    
     }
-
-html {
-
-    background: linear-gradient(rgba(55, 96, 146, 0.4), transparent)
-}
 
