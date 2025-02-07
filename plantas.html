@@ -4,99 +4,63 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <title>Plantas TEJEDURIAS</title>
-        <link rel="stylesheet" href="./Estilos/plantas2.css">
+        <link rel="stylesheet" href="Estilos/plantas2.css">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-        <meta name="aur">
         <script src="https://kit.fontawesome.com/8873f45d15.js" crossorigin="anonymous"></script>
         <link rel="icon" href="./Imagenes/lubricacion.png" type="image/png">
     </head>
     <body>
 
-    <!--Encabezado de pagina-->    
-        <div class="encabezado">
-            <p>C.I.G & Lingerie s.a.s</p>  
+    <!--Encabezado de la página-->
+        <header class="encabezado">
+            <p>OPI TEJEDURIA</p>  
             <h1>LUBRICACIÓN TEJEDURIAS</h1>
-        </div> 
+        </header>
 
-    <!--Boton Administrador y Salir-->
+    <!--Botones Administrador y Salir-->
         <div class="Administrador">
             <a href="Administrador"><i class="fa-solid fa-lock"></i>Administrador</a>
             <a href="./inicio.html"><i class="fa-solid fa-power-off"></i>Salir</a>
         </div>
-        
-        <div class="totalplantas"> 
-       <!--Planta division textil-->
-        
-       
-            <div class="plantas">
-                <h2>División Textil</h2>
-                <p>Items de lubricacion</p>
-                <li>
-                    <a href="./horometrosdvt.html"><i class="fa-solid fa-clock"></i>Mapa de horometros</a>
-                </li>
-                <li>
-                    <a href="./inicio.html"><i class="fa-solid fa-file"></i>Resumen</a>
-                </li>
-                <li>
-                    <a href="./inicio.html"><i class="fa-solid fa-droplet"></i>Puntos de lubricación</a>
-                </li>
-                <li>
-                    <a href="./inicio.html"><i class="fa-solid fa-clock-rotate-left"></i>Actualizar horometros</a>
-                </li>
-            </div>
-            <div class="proco">
-                <h2>PROCO</h2>
-                <p>Items de lubricacion</p>
-                <li>
-                    <a href="./inicio.html"><i class="fa-solid fa-clock"></i>Mapa de horometros</a>
-                </li>
-                <li>
-                    <a href="./inicio.html"><i class="fa-solid fa-file"></i>Resumen</a>
-                </li>
-                <li>
-                    <a href="./inicio.html"><i class="fa-solid fa-droplet"></i>Puntos de lubricación</a>
-                </li>
-                <li>
-                    <a href="./inicio.html"><i class="fa-solid fa-clock-rotate-left"></i>Actualizar horometros</a>
-                </li>
-            </div>
-            <div class="santoni">
-                <h2>Circulares Seamless</h2>
-                <p>Items de lubricacion</p>
-                <li>
-                    <a href="./inicio.html"><i class="fa-solid fa-clock"></i>Mapa de horometros</a>
-                </li>
-                <li>
-                    <a href="./inicio.html"><i class="fa-solid fa-file"></i>Resumen</a>
-                </li>
-                <li>
-                    <a href="./inicio.html"><i class="fa-solid fa-droplet"></i>Puntos de lubricación</a>
-                </li>
-                <li>
-                    <a href="./inicio.html"><i class="fa-solid fa-clock-rotate-left"></i>Actualizar horometros</a>
-                </li>
-            </div>
+
+    <!--Contenedor de las plantas-->
+    <div class="totalplantas"> 
+        <!-- División textil -->
+        <div class="plantas">
+            <h2>División Textil</h2>
+            <p>Items de lubricación</p>
+            <ul>
+                <li><a href="./horometrosdvt.html"><i class="fa-solid fa-clock"></i>Mapa de horometros</a></li>
+                <li><a href="./inicio.html"><i class="fa-solid fa-file"></i>Resumen</a></li>
+                <li><a href="./inicio.html"><i class="fa-solid fa-droplet"></i>Puntos de lubricación</a></li>
+                <li><a href="./inicio.html"><i class="fa-solid fa-clock-rotate-left"></i>Actualizar horometros</a></li>
+            </ul>
         </div>
-        <script>
-            // Obtener la fecha actual
-            const fechaActual = new Date();
 
-            // Mostrar la fecha actual en formato: Día de la semana, DD/MM/AAAA
-            const opcionesFecha = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-            document.getElementById('fecha').textContent = `Fecha: ${fechaActual.toLocaleDateString('es-ES', opcionesFecha)}`;
+        <!-- PROCO -->
+        <div class="proco">
+            <h2>PROCO</h2>
+            <p>Items de lubricación</p>
+            <ul>
+                <li><a href="./inicio.html"><i class="fa-solid fa-clock"></i>Mapa de horometros</a></li>
+                <li><a href="./inicio.html"><i class="fa-solid fa-file"></i>Resumen</a></li>
+                <li><a href="./inicio.html"><i class="fa-solid fa-droplet"></i>Puntos de lubricación</a></li>
+                <li><a href="./inicio.html"><i class="fa-solid fa-clock-rotate-left"></i>Actualizar horometros</a></li>
+            </ul>
+        </div>
 
-            // Función para calcular el número de la semana
-            function obtenerNumeroSemana(fecha) {
-            const dia = new Date(fecha);
-            const inicioAnio = new Date(dia.getFullYear(), 0, 1);
-            const diasTranscurridos = (dia - inicioAnio) / (1000 * 60 * 60 * 24);
-            return Math.ceil((diasTranscurridos + 1) / 7);
-            }
-
-            // Obtener y mostrar el número de la semana
-            const numeroSemana = obtenerNumeroSemana(fechaActual);
-            document.getElementById('semana').textContent = `Semana Actual: ${numeroSemana}`;
-            </script>
+        <!-- Santoni -->
+        <div class="santoni">
+            <h2>Circulares Seamless</h2>
+            <p>Items de lubricación</p>
+            <ul>
+                <li><a href="./inicio.html"><i class="fa-solid fa-clock"></i>Mapa de horometros</a></li>
+                <li><a href="./inicio.html"><i class="fa-solid fa-file"></i>Resumen</a></li>
+                <li><a href="./inicio.html"><i class="fa-solid fa-droplet"></i>Puntos de lubricación</a></li>
+                <li><a href="./inicio.html"><i class="fa-solid fa-clock-rotate-left"></i>Actualizar horometros</a></li>
+            </ul>
+        </div>
+    </div>
 
     </body>
 </html>
