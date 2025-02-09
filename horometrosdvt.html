@@ -1,194 +1,252 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Horómetros División textil</title>
-        <link rel="stylesheet" href="Estilos/horometrosdvt.css">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-        <meta name="aur">
-        <script src="https://kit.fontawesome.com/8873f45d15.js" crossorigin="anonymous"></script>
-        <link rel="icon" href="./Imagenes/lubricacion.png" type="image/png">
-    </head>
-    <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horómetros División textil</title>
+    <link rel="stylesheet" href="Estilos/horometrosdvt.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <meta name="aur">
+    <script src="https://kit.fontawesome.com/8873f45d15.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="./Imagenes/lubricacion.png" type="image/png">
+</head>
+<body>
 
-    <!--Encabezado de pagina-->    
-        <div class="encabezado">
-            <p>OPI TEJEDURIA</p>  
-            <h1>HORÓMETROS DIVISIÓN TEXTIL</h1>
-        </div> 
-        <div class="cinta_opciones">
-            <ul>
-                <li><a href="./plantas.html">Inicio</a></li>
-                <li><a href="./plantas.html">Resumen</a></li>
-                <li><a href="./plantas.html">Puntos de lubricación</a></li>
-                <li><a href="./plantas.html">Actualizar Horómetros</a></li>
-            </ul>
+<!--Encabezado de pagina-->    
+<div class="encabezado">
+    <p>OPI TEJEDURIA</p>  
+    <h1>HORÓMETROS DIVISIÓN TEXTIL</h1>
+</div> 
+<div class="cinta_opciones">
+    
+    <ul>
+        <li><a href="./plantas.html">Inicio</a></li>
+        <li><a href="./plantas.html">Resumen</a></li>
+        <li><a href="./plantas.html">Puntos de lubricación</a></li>
+        <li><a href="./plantas.html">Actualizar Horómetros</a></li>
+    </ul>
+</div>
+<div class="contenedor-opciones">
+    <button id="actualizarBtn">Actualizar</button>
+    <div class="fechasemana">
+        <p id="fecha"></p>
+        <p id="semana"></p>
+    </div>
+    <!-- Cajones de información -->
+    <div class="informacion">
+        <div id="pendientes" class="info-caja">
+            <h3>Pendientes para lubricar:</h3>
+            <p id="contadorPendientes">0</p>
         </div>
-
-        <div class="fechasemana">
-            <p id="fecha"></p>
-            <p id="semana"></p>
+        <div id="proximos" class="info-caja">
+            <h3>Próximos a lubricar:</h3>
+            <p id="contadorProximos">0</p>
         </div>
-   
-        <table>
-        <thead>
-            <tr>
-                <th class="titulo">TELAR</th>
-                <th class="titulo">HOR INICIAL</th>
-                <th class="titulo">HOROMETRO ACTUAL</th>
-                <th class="titulo">HORA FAB</th>
-                <th class="titulo">HORAS DE TRABAJO</th>
-                <th class="titulo">ESTADO HORÓMETRO</th>
-                <th class="titulo">ESTADO TELAR</th>
-                <th class="titulo">PARTE</th>
-                <th class="titulo">SEMANA ACTUAL</th>
-                
-            </tr>
-        </thead>
-        <tbody>
+    </div>
+</div>
 
-                <!--telar 23-->
-                <tr>
-                    <td class="barra"></td> <td class="barra">7272</td>
-                    <td class="barra"></td>
-                    <td class="barra"></td>
-                    <td class="barra"></td>
-                    <td class="barra"></td>
-                    <td class="barra"></td>
-                    <td class="barra"></td>
-                    <td class="barra"></td>
-                    
-                </tr>
-                <tr>
-                    <th class="telar" rowspan="4">P-RASMD23</td>
-                    <td>7272</td>
-                    <td></td>
-                    <td>480</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>LUBRICACION 480 HORAS</td>
-                    <td><i class="fas fa-sync" onclick="reiniciarHorometro()"></i></td> <!-- Icono y función de clic -->
-                </tr>
-                <tr>
-                    <td>7272</td>
-                    <td></td>
-                    <td>1500</td>
-                    <td></td>
-                    <td></td>               
-                    <td></td>
-                    <td>LUBRICACION 1500 HORAS</td>
-                    <td><i class="fas fa-sync" onclick="reiniciarHorometro()"></i></td> <!-- Icono y función de clic -->
-                </tr>
-                <tr>
-                    <td>7272</td>
-                    <td></td>
-                    <td>3000</td>
-                    <td></td>
-                    <td></td>                
-                    <td></td>
-                    <td>LUBRICACION 3000 HORAS</td>
-                    <td><i class="fas fa-sync" onclick="reiniciarHorometro()"></i></td> <!-- Icono y función de clic -->
-                </tr>
-                <tr>
-                    <td>7272</td>
-                    <td></td>
-                    <td>12000</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>LUBRICACION 12000 HORAS</td>
-                    <td><i class="fas fa-sync" onclick="reiniciarHorometro()"></i></td> <!-- Icono y función de clic -->
-                </tr>
+<table id="tablaHorometros">
+<thead>
+    <tr>
+        <th class="titulo">TELAR</th>
+        <th class="titulo">HOR INICIAL</th>
+        <th class="titulo">HOROMETRO ACTUAL</th>
+        <th class="titulo">HORA FAB</th>
+        <th class="titulo">HORAS DE TRABAJO</th>
+        <th class="titulo">ESTADO HORÓMETRO</th>
+        <th class="titulo">ESTADO TELAR</th>
+        <th class="titulo">PARTE</th>
+        <th class="titulo">SEMANA ACTUAL</th>
+    </tr>
+</thead>
+<tbody>
+    <!-- Telar 23-->
+    <tr>
+        <td>P-RASMD23</td>
+        <td>7272</td>
+        <td></td>
+        <td>480</td>
+        <td>385</td>
+        <td></td>
+        <td></td>
+        <td>LUBRICACION 480 HORAS</td>
+        <td><i class="fas fa-sync" onclick="reiniciarHorometro()"></i></td> <!-- Icono y función de clic -->
+    </tr>
+    <tr>
+        <td>P-RASMD23</td>
+        <td>7272</td>
+        <td></td>
+        <td>1500</td>
+        <td>1500</td>
+        <td></td>
+        <td></td>
+        <td>LUBRICACION 1500 HORAS</td>
+        <td><i class="fas fa-sync" onclick="reiniciarHorometro()"></i></td> <!-- Icono y función de clic -->
+    </tr>
+    <tr>
+        <td>P-RASMD23</td>
+        <td>7272</td>
+        <td></td>
+        <td>3000</td>
+        <td>3000</td>
+        <td></td>
+        <td></td>
+        <td>LUBRICACION 3000 HORAS</td>
+        <td><i class="fas fa-sync" onclick="reiniciarHorometro()"></i></td> <!-- Icono y función de clic -->
+    </tr>
+    <tr>
+        <td>P-RASMD23</td>
+        <td>7272</td>
+        <td></td>
+        <td>12000</td>
+        <td>9600</td>
+        <td></td>
+        <td></td>
+        <td>LUBRICACION 12000 HORAS</td>
+        <td><i class="fas fa-sync" onclick="reiniciarHorometro()"></i></td> <!-- Icono y función de clic -->
+    </tr>
+    <tr>
+        <td class="barra"></td>
+        <td class="barra"></td>
+        <td class="barra"></td>
+        <td class="barra"></td>
+        <td class="barra"></td>
+        <td class="barra"></td>
+        <td class="barra"></td>
+        <td class="barra"></td>
+        <td class="barra"></td>
+    </tr>
+    
 
-                 <!--telar 114-->
-                 <tr>
-                    <td class="barra"></td> <td class="barra">7272</td>
-                    <td class="barra"></td>
-                    <td class="barra"></td>
-                    <td class="barra"></td>
-                    <td class="barra"></td>
-                    <td class="barra"></td>
-                    <td class="barra"></td>
-                    <td class="barra"></td>
-                   
-                </tr>
-                <tr>
-                    <th class="telar" rowspan="4">P-RASMD114</td>
-                    <td>7272</td>
-                    <td></td>
-                    <td>480</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>LUBRICACION 480 HORAS</td>
-                    <td><i class="fas fa-sync" onclick="reiniciarHorometro()"></i></td> <!-- Icono y función de clic -->
-                </tr>
-                <tr>
-                    <td>7272</td>
-                    <td></td>
-                    <td>1500</td>
-                    <td></td>
-                    <td></td>               
-                    <td></td>
-                    <td>LUBRICACION 1500 HORAS</td>
-                    <td><i class="fas fa-sync" onclick="reiniciarHorometro()"></i></td> <!-- Icono y función de clic -->
-                </tr>
-                <tr>
-                    <td>7272</td>
-                    <td></td>
-                    <td>3000</td>
-                    <td></td>
-                    <td></td>                
-                    <td></td>
-                    <td>LUBRICACION 3000 HORAS</td>
-                    <td><i class="fas fa-sync" onclick="reiniciarHorometro()"></i></td> <!-- Icono y función de clic -->
-                </tr>
-                <tr>
-                    <td>7272</td>
-                    <td></td>
-                    <td>12000</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>LUBRICACION 12000 HORAS</td>
-                    <td><i class="fas fa-sync" onclick="reiniciarHorometro()"></i></td> <!-- Icono y función de clic -->
-                </tr>
+    <!-- Telar 114-->
+    <tr>
+        <td>P-RASMD114</td>
+        <td>7272</td>
+        <td></td>
+        <td>480</td>
+        <td>385</td>
+        <td></td>
+        <td></td>
+        <td>LUBRICACION 480 HORAS</td>
+        <td><i class="fas fa-sync" onclick="reiniciarHorometro()"></i></td> <!-- Icono y función de clic -->
+    </tr>
+    <tr>
+        <td>P-RASMD114</td>
+        <td>7272</td>
+        <td></td>
+        <td>1500</td>
+        <td>1500</td>
+        <td></td>
+        <td></td>
+        <td>LUBRICACION 1500 HORAS</td>
+        <td><i class="fas fa-sync" onclick="reiniciarHorometro()"></i></td> <!-- Icono y función de clic -->
+    </tr>
+    <tr>
+        <td>P-RASMD114</td>
+        <td>7272</td>
+        <td></td>
+        <td>3000</td>
+        <td>3000</td>
+        <td></td>
+        <td></td>
+        <td>LUBRICACION 3000 HORAS</td>
+        <td><i class="fas fa-sync" onclick="reiniciarHorometro()"></i></td> <!-- Icono y función de clic -->
+    </tr>
+    <tr>
+        <td>P-RASMD114</td>
+        <td>7272</td>
+        <td></td>
+        <td>12000</td>
+        <td>15000</td>
+        <td></td>
+        <td></td>
+        <td>LUBRICACION 12000 HORAS</td>
+        <td><i class="fas fa-sync" onclick="reiniciarHorometro()"></i></td> <!-- Icono y función de clic -->
+    </tr>
+    <tr>
+        <td class="barra"></td>
+        <td class="barra"></td>
+        <td class="barra"></td>
+        <td class="barra"></td>
+        <td class="barra"></td>
+        <td class="barra"></td>
+        <td class="barra"></td>
+        <td class="barra"></td>
+        <td class="barra"></td>
+    </tr>
 
-            </tbody>
-        </table>
+</tbody>
+</table>
 
-        <script>
-            // Función para mostrar la alerta de reiniciar el horómetro
-            function reiniciarHorometro() {
-                const confirmarReinicio = confirm("¿Deseas reiniciar el horómetro?");
-                if (confirmarReinicio) {
-                    alert("El horómetro ha sido reiniciado.");
-                } else {
-                    alert("El horómetro no ha sido reiniciado.");
+<script>
+// Función para mostrar la alerta de reiniciar el horómetro
+function reiniciarHorometro() {
+    const confirmarReinicio = confirm("¿Deseas reiniciar el horómetro?");
+    if (confirmarReinicio) {
+        alert("El horómetro ha sido reiniciado.");
+    } else {
+        alert("El horómetro no ha sido reiniciado.");
+    }
+}
+
+// Obtener la fecha actual
+const fechaActual = new Date();
+
+// Mostrar la fecha actual en formato: Día de la semana, DD/MM/AAAA
+const opcionesFecha = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+document.getElementById('fecha').textContent = `Fecha: ${fechaActual.toLocaleDateString('es-ES', opcionesFecha)}`;
+
+// Función para calcular el número de la semana
+function obtenerNumeroSemana(fecha) {
+    const dia = new Date(fecha);
+    const inicioAnio = new Date(dia.getFullYear(), 0, 1);
+    const diasTranscurridos = (dia - inicioAnio) / (1000 * 60 * 60 * 24);
+    return Math.ceil((diasTranscurridos + 1) / 7);
+}
+
+// Obtener y mostrar el número de la semana
+const numeroSemana = obtenerNumeroSemana(fechaActual);
+document.getElementById('semana').textContent = `Semana Actual: ${numeroSemana}`;
+
+// Función para actualizar la columna ESTADO TELAR y contar los estados
+document.getElementById('actualizarBtn').addEventListener('click', function() {
+    let contadorPendientes = 0;  // Para contar los "Pendientes para lubricar"
+    let contadorProximos = 0;    // Para contar los "Próximos a lubricar"
+    
+    const filas = document.querySelectorAll('#tablaHorometros tbody tr');
+    filas.forEach(fila => {
+        // Obtener los valores de las celdas necesarias
+        const horaFab = parseInt(fila.cells[3].textContent.trim(), 10);
+        const horasTrabajo = parseInt(fila.cells[4].textContent.trim(), 10);
+        const estadoTelar = fila.cells[6];  // Columna ESTADO TELAR
+
+        // Verificar si los valores son números válidos
+        if (!isNaN(horaFab) && !isNaN(horasTrabajo)) {
+            // Lógica de comparación para actualizar el estado del telar
+            if (horasTrabajo >= horaFab) {
+                estadoTelar.textContent = "Pendiente para lubricar";  // Si las horas de trabajo superan la hora de fabricación
+                estadoTelar.style.background = "#c24444";
+                estadoTelar.style.color = "white";
+                contadorPendientes++;  // Contar los "Pendientes para lubricar"
+            } else {
+                let resultado = horaFab * 0.8;
+                if (horasTrabajo >= resultado && horasTrabajo < horaFab) {
+                    estadoTelar.textContent = "Próximo a lubricar";
+                    estadoTelar.style.background = "#efe32c";
+                    estadoTelar.style.color = "black";
+                    contadorProximos++;  // Contar los "Próximos a lubricar"
                 }
             }
+        } 
+    });
 
-            // Obtener la fecha actual
-            const fechaActual = new Date();
+    // Actualizar los conteos en los cajones de información
+    document.getElementById('contadorPendientes').textContent = contadorPendientes;
+    document.getElementById('contadorProximos').textContent = contadorProximos;
+});
 
-            // Mostrar la fecha actual en formato: Día de la semana, DD/MM/AAAA
-            const opcionesFecha = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-            document.getElementById('fecha').textContent = `Fecha: ${fechaActual.toLocaleDateString('es-ES', opcionesFecha)}`;
+</script>
 
-            // Función para calcular el número de la semana
-            function obtenerNumeroSemana(fecha) {
-                const dia = new Date(fecha);
-                const inicioAnio = new Date(dia.getFullYear(), 0, 1);
-                const diasTranscurridos = (dia - inicioAnio) / (1000 * 60 * 60 * 24);
-                return Math.ceil((diasTranscurridos + 1) / 7);
-            }
 
-            // Obtener y mostrar el número de la semana
-            const numeroSemana = obtenerNumeroSemana(fechaActual);
-            document.getElementById('semana').textContent = `Semana Actual: ${numeroSemana}`;
-        </script>
-
-    </body>
+</body>
 </html>
