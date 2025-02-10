@@ -97,9 +97,9 @@
     <tr>
         <td>P-RASMD23</td>
         <td>7272</td>
+        <td>19150</td>
         <td>12000</td>
-        <td>12000</td>
-        <td>9600</td>
+        <td></td>
         <td></td>
         <td></td>
         <td>LUBRICACION 12000 HORAS</td>
@@ -122,17 +122,25 @@
 
 <script>
 
-        // Columna ESTADO TELAR
-
 function reiniciarHorometro() {
+
    
     const confirmarReinicio = confirm("¿Deseas reiniciar el horómetro?");
     if (confirmarReinicio) {
-        alert("El horómetro se ha sido reiniciado.");
+        const filas = document.querySelectorAll('#tablaHorometros tbody tr');
+        filas.forEach(fila => {
+            // Obtener los valores de las celdas necesarias
+            const horaIni = parseInt(fila.cells[1].textContent.trim(), 10);
+            const horasTrabajo = parseInt(fila.cells[2].textContent.trim(), 10);
+
+            // Asignar el valor de horasTrabajo a la celda de horaIni
+            fila.cells[1].textContent = horasTrabajo;  // Actualiza el contenido de la celda de horaIni
+        });
     } else {
         alert("El horómetro no ha sido reiniciado.");
     }
 }
+
 
 // Obtener la fecha actual
 const fechaActual = new Date();
@@ -153,7 +161,6 @@ function obtenerNumeroSemana(fecha) {
 const numeroSemana = obtenerNumeroSemana(fechaActual);
 document.getElementById('semana').textContent = `Semana Actual: ${numeroSemana}`;
 
-// Función para actualizar la columna ESTADO TELAR y contar los estados
 document.getElementById('actualizarBtn').addEventListener('click', function() {
     let contadorPendientes = 0;  // Para contar los "Pendientes para lubricar"
     let contadorProximos = 0;    // Para contar los "Próximos a lubricar"
@@ -168,13 +175,14 @@ document.getElementById('actualizarBtn').addEventListener('click', function() {
         const estadoHorometro = fila.cells[5];
         const estadoTelar = fila.cells[6];  // Columna ESTADO TELAR
         let resta = horasTrabajo - horaIni;
-        horasTotal.textContent = resta 
+        horasTotal.textContent = resta;
 
         if (resta >= horasFab ) {
-            estadoHorometro.textContent = "0"
+            estadoHorometro.textContent = "0";
         } else {
-            estadoHorometro.textContent = resta
+            estadoHorometro.textContent = resta;
         }
+
         // Verificar si los valores son números válidos
         if (!isNaN(horaIni) && !isNaN(horasTrabajo)) {
             // Lógica de comparación para actualizar el estado del telar
@@ -184,12 +192,17 @@ document.getElementById('actualizarBtn').addEventListener('click', function() {
                 estadoTelar.style.color = "white";
                 contadorPendientes++;  // Contar los "Pendientes para lubricar"
             } else {
-                let resultado = horaIni * 0.8;
-                if (horasTrabajo >= resultado && horasTrabajo < horaIni) {
+                let resultado = horasFab * 0.8;  // 80% del valor de horasFab
+                if (resta < horasFab && resta >= resultado) {
                     estadoTelar.textContent = "Próximo a lubricar";
                     estadoTelar.style.background = "#efe32c";
                     estadoTelar.style.color = "black";
                     contadorProximos++;  // Contar los "Próximos a lubricar"
+                } else {
+                    // Si no es próximo a lubricar, resetear el estado
+                    estadoTelar.textContent = "";
+                    estadoTelar.style.background = "";
+                    estadoTelar.style.color = "";
                 }
             }
         } 
@@ -199,6 +212,7 @@ document.getElementById('actualizarBtn').addEventListener('click', function() {
     document.getElementById('contadorPendientes').textContent = contadorPendientes;
     document.getElementById('contadorProximos').textContent = contadorProximos;
 });
+
 
 // Ejecutar el clic automáticamente cuando se carga la página
 window.onload = function() {
