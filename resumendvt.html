@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Resumen División textil</title>
+        <link rel="stylesheet" href="./Estilos/resumendvt.css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+        <meta name="aur">
+        <script src="https://kit.fontawesome.com/8873f45d15.js" crossorigin="anonymous"></script>
+        <link rel="icon" href="./Imagenes/lubricacion.png" type="image/png">
+    </head>
+    <body>
+
+    <!--Encabezado de pagina-->    
+        <div class="encabezado">
+            <p>OPI TEJEDURIA</p>  
+            <h1>RESUMEN DIVISIÓN TEXTIL</h1>
+        </div> 
+        <div class="cinta_opciones">
+            <ul>
+                <li><a href="./plantas.html">Inicio</a></li>
+                <li><a href="./horometrosdvt.html">Horómetros</a></li>
+                <li><a href="./plantas.html">Puntos de lubricación</a></li>
+            </ul>
+        </div>
+
+        <div class="fechasemana">
+            <p id="fecha"></p>
+            <p id="semana"></p>
+
+            <button onclick="actualizar">Actualizar</button>
+            <div class="tablas">
+                <div class="tabla-contenedor">
+                    <h2 id="lubricar">TELARES PENDIENTES PARA LUBRICAR</h2>
+                    <table class="resumen1">
+                        <thead>
+                            <tr>
+                                <th class="titulo1">TELAR</th>
+                                <th class="titulo1">PARTE</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            
+                <div class="tabla-contenedor">
+                    <h2 id="proximos">TELARES PROXIMOS PARA LUBRICAR</h2>
+                    <table class="resumen2">
+                        <thead>
+                            <tr>
+                                <th class="titulo2">TELAR</th>
+                                <th class="titulo2">PARTE</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+        </div>
+        <script src="javas.js"></script>
+        <script>
+            // Función para mostrar la alerta de reiniciar el horómetro
+            function reiniciarHorometro() {
+                const confirmarReinicio = confirm("¿Deseas reiniciar el horómetro?");
+                if (confirmarReinicio) {
+                    alert("El horómetro ha sido reiniciado.");
+                } else {
+                    alert("El horómetro no ha sido reiniciado.");
+                }
+            }
+
+            // Obtener la fecha actual
+            const fechaActual = new Date();
+
+            // Mostrar la fecha actual en formato: Día de la semana, DD/MM/AAAA
+            const opcionesFecha = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('fecha').textContent = `Fecha: ${fechaActual.toLocaleDateString('es-ES', opcionesFecha)}`;
+
+            // Función para calcular el número de la semana
+            function obtenerNumeroSemana(fecha) {
+                const dia = new Date(fecha);
+                const inicioAnio = new Date(dia.getFullYear(), 0, 1);
+                const diasTranscurridos = (dia - inicioAnio) / (1000 * 60 * 60 * 24);
+                return Math.ceil((diasTranscurridos + 1) / 7);
+            }
+
+            // Obtener y mostrar el número de la semana
+            const numeroSemana = obtenerNumeroSemana(fechaActual);
+            document.getElementById('semana').textContent = `Semana Actual: ${numeroSemana}`;
+        </script>
+
+    </body>
+</html>

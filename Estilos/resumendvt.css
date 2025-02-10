@@ -73,70 +73,45 @@ body {
 .fechasemana {
     text-align: center;
     font-size: 1.3rem;
-    color: #004e72;
+    color: #00796b; /* Verde apagado para un toque empresarial */
     margin-top: 20px;
     text-shadow: 0 0 10px rgba(0, 151, 107, 0.5);
 }
 
-#actualizarBtn {
-    background: #57cc47;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    margin-right: 80px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    border-radius: 5px;
-    box-shadow: 0 0 5px #006a8e;
+
+.tabla-contenedor {
+    margin: 50px;
+   width: 800px;
+   
 }
 
-#actualizarBtn:hover{
-    
-    transform: scale(1.05);
-
-
-}
-
-.contenedor-opciones {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    margin: 20px;
-}
-
-.informacion {
-    display: flex;
-    gap: 20px;
-    padding-left: 50px;
-}
-
-.info-caja {
+#lubricar, #proximos {
+    font-size: 22px;
+    margin-bottom: 20px;
+    border-radius: 100px;
     padding: 10px;
-    border: 1px solid #ddd;
-    background-color: #f4f4f4;
-    border-radius: 5px;
-    width: 150px;
-    text-align: center;
 }
-
-.info-caja h3 {
-    font-size: 16px;
-    margin-bottom: 10px;
     
+
+#lubricar {
+    color: #f2f2f2;
+    background: #df5151;
+    border: 1px solid #df5151; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
 }
 
-#pendientes {
-    background-color: #f8d7da;
-    border-left: 10px solid #f5a3aa;
-    
+#lubricar:hover, #proximos:hover{
+    transform: scale(1.03);
 }
-
 #proximos {
-    background-color: #fff3cd;
-    border-left: 10px solid #f8e197;
+    background: #4ecf5a;
+    color: #f2f2f2;
+    border: 1px solid #4ecf5a;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
+
+
+
 /* Estilo de tabla más sobrio */
 table {
     width: 100%;
@@ -146,20 +121,16 @@ table {
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.barra {
-    background: #b0bec5; /* Gris claro para el encabezado */
-    color: #b0bec5; ;
-    font-weight: bold;
-}
 
 .titulo, .telar {
     color: #fff;
 }
 
 
-th, td {
+td {
     padding: 20px;
     text-align: center;
     border: 1px solid #ddd; /* Borde suave y sutil */
@@ -167,11 +138,24 @@ th, td {
     font-size: 0.9rem;
 }
 
-th {
-    background: linear-gradient(135deg, #004e72, #006a8e); /* Gradiente de azul serio */
+.titulo1 {
+    background: #df5151;
     font-weight: bold;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    color: #f2f2f2;
 }
+
+
+
+.titulo2 {
+    background: #4ecf5a;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    color: #f2f2f2;
+}
+
 
 td {
     background-color: #f4f6f9; /* Color de fondo gris claro */
@@ -179,12 +163,35 @@ td {
 }
 
 tr:hover td {
-    background-color: #00796b; /* Verde apagado para el hover */
+    background-color: #006a8e; /* Verde apagado para el hover */
     color: #fff;
     transform: scale(1.05);
 }
 
 
+
+.resumen1, .resumen2 {
+    margin: 0;
+    width: 100%;
+    
+    
+}
+
+.resumen1:hover, .resumen2:hover{
+    transform: scale(1.05);
+}
+
+.tablas {
+    
+    margin-top: 70px;
+    display: flex;
+    justify-content: center;
+   
+}
+
+.tablas table{
+    padding-right: 50px;
+}
 
 
 /* Efecto de animación para las filas */

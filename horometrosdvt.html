@@ -21,7 +21,7 @@
     
     <ul>
         <li><a href="./plantas.html">Inicio</a></li>
-        <li><a href="./plantas.html">Resumen</a></li>
+        <li><a href="./resumendvt.html">Resumen</a></li>
         <li><a href="./plantas.html">Puntos de lubricación</a></li>
         <li><a href="./plantas.html">Actualizar Horómetros</a></li>
     </ul>
@@ -64,7 +64,7 @@
     <tr>
         <td>P-RASMD23</td>
         <td>7272</td>
-        <td></td>
+        <td>12000</td>
         <td>480</td>
         <td>385</td>
         <td></td>
@@ -75,7 +75,7 @@
     <tr>
         <td>P-RASMD23</td>
         <td>7272</td>
-        <td></td>
+        <td>12000</td>
         <td>1500</td>
         <td>1500</td>
         <td></td>
@@ -86,7 +86,7 @@
     <tr>
         <td>P-RASMD23</td>
         <td>7272</td>
-        <td></td>
+        <td>12000</td>
         <td>3000</td>
         <td>3000</td>
         <td></td>
@@ -97,67 +97,9 @@
     <tr>
         <td>P-RASMD23</td>
         <td>7272</td>
-        <td></td>
+        <td>12000</td>
         <td>12000</td>
         <td>9600</td>
-        <td></td>
-        <td></td>
-        <td>LUBRICACION 12000 HORAS</td>
-        <td><i class="fas fa-sync" onclick="reiniciarHorometro()"></i></td> <!-- Icono y función de clic -->
-    </tr>
-    <tr>
-        <td class="barra"></td>
-        <td class="barra"></td>
-        <td class="barra"></td>
-        <td class="barra"></td>
-        <td class="barra"></td>
-        <td class="barra"></td>
-        <td class="barra"></td>
-        <td class="barra"></td>
-        <td class="barra"></td>
-    </tr>
-    
-
-    <!-- Telar 114-->
-    <tr>
-        <td>P-RASMD114</td>
-        <td>7272</td>
-        <td></td>
-        <td>480</td>
-        <td>385</td>
-        <td></td>
-        <td></td>
-        <td>LUBRICACION 480 HORAS</td>
-        <td><i class="fas fa-sync" onclick="reiniciarHorometro()"></i></td> <!-- Icono y función de clic -->
-    </tr>
-    <tr>
-        <td>P-RASMD114</td>
-        <td>7272</td>
-        <td></td>
-        <td>1500</td>
-        <td>1500</td>
-        <td></td>
-        <td></td>
-        <td>LUBRICACION 1500 HORAS</td>
-        <td><i class="fas fa-sync" onclick="reiniciarHorometro()"></i></td> <!-- Icono y función de clic -->
-    </tr>
-    <tr>
-        <td>P-RASMD114</td>
-        <td>7272</td>
-        <td></td>
-        <td>3000</td>
-        <td>3000</td>
-        <td></td>
-        <td></td>
-        <td>LUBRICACION 3000 HORAS</td>
-        <td><i class="fas fa-sync" onclick="reiniciarHorometro()"></i></td> <!-- Icono y función de clic -->
-    </tr>
-    <tr>
-        <td>P-RASMD114</td>
-        <td>7272</td>
-        <td></td>
-        <td>12000</td>
-        <td>15000</td>
         <td></td>
         <td></td>
         <td>LUBRICACION 12000 HORAS</td>
@@ -179,11 +121,14 @@
 </table>
 
 <script>
-// Función para mostrar la alerta de reiniciar el horómetro
+
+        // Columna ESTADO TELAR
+
 function reiniciarHorometro() {
+   
     const confirmarReinicio = confirm("¿Deseas reiniciar el horómetro?");
     if (confirmarReinicio) {
-        alert("El horómetro ha sido reiniciado.");
+        alert("El horómetro se ha sido reiniciado.");
     } else {
         alert("El horómetro no ha sido reiniciado.");
     }
@@ -216,21 +161,31 @@ document.getElementById('actualizarBtn').addEventListener('click', function() {
     const filas = document.querySelectorAll('#tablaHorometros tbody tr');
     filas.forEach(fila => {
         // Obtener los valores de las celdas necesarias
-        const horaFab = parseInt(fila.cells[3].textContent.trim(), 10);
-        const horasTrabajo = parseInt(fila.cells[4].textContent.trim(), 10);
+        const horaIni = parseInt(fila.cells[1].textContent.trim(), 10);
+        const horasTrabajo = parseInt(fila.cells[2].textContent.trim(), 10);
+        const horasFab = parseInt(fila.cells[3].textContent.trim(), 10);
+        const horasTotal = fila.cells[4];
+        const estadoHorometro = fila.cells[5];
         const estadoTelar = fila.cells[6];  // Columna ESTADO TELAR
+        let resta = horasTrabajo - horaIni;
+        horasTotal.textContent = resta 
 
+        if (resta >= horasFab ) {
+            estadoHorometro.textContent = "0"
+        } else {
+            estadoHorometro.textContent = resta
+        }
         // Verificar si los valores son números válidos
-        if (!isNaN(horaFab) && !isNaN(horasTrabajo)) {
+        if (!isNaN(horaIni) && !isNaN(horasTrabajo)) {
             // Lógica de comparación para actualizar el estado del telar
-            if (horasTrabajo >= horaFab) {
-                estadoTelar.textContent = "Pendiente para lubricar";  // Si las horas de trabajo superan la hora de fabricación
+            if (resta >= horasFab) {
+                estadoTelar.textContent = "Pendiente para lubricar"; 
                 estadoTelar.style.background = "#c24444";
                 estadoTelar.style.color = "white";
                 contadorPendientes++;  // Contar los "Pendientes para lubricar"
             } else {
-                let resultado = horaFab * 0.8;
-                if (horasTrabajo >= resultado && horasTrabajo < horaFab) {
+                let resultado = horaIni * 0.8;
+                if (horasTrabajo >= resultado && horasTrabajo < horaIni) {
                     estadoTelar.textContent = "Próximo a lubricar";
                     estadoTelar.style.background = "#efe32c";
                     estadoTelar.style.color = "black";
@@ -244,6 +199,12 @@ document.getElementById('actualizarBtn').addEventListener('click', function() {
     document.getElementById('contadorPendientes').textContent = contadorPendientes;
     document.getElementById('contadorProximos').textContent = contadorProximos;
 });
+
+// Ejecutar el clic automáticamente cuando se carga la página
+window.onload = function() {
+    // Simular un clic en el botón de actualizar
+    document.getElementById('actualizarBtn').click();
+};
 
 </script>
 
